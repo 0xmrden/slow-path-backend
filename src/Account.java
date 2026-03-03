@@ -13,12 +13,21 @@ public class Account {
         return balance;
     }
 
-    private void changeBalance (int delta) {
-        int newBalance = balance + delta;
-
-        if (newBalance < 0) {
-            throw new IllegalStateException("Balance cannot go below zero");
+    public void deposit(int amount) {
+        if (amount <= 0) {
+            throw new IllegalArgumentException("Deposit must be positive");
         }
-        balance = newBalance;
+        balance += amount;
+    }
+
+    public void withdraw(int amount) {
+        if (amount <= 0) {
+            throw new
+                    IllegalArgumentException("Withdraw must be positive");
+        }
+        if (amount > balance) {
+            throw new IllegalStateException("Insufficient funds");
+        }
+        balance -= amount;
     }
 }
