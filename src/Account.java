@@ -25,9 +25,9 @@ public class Account {
             throw new
                     IllegalArgumentException("Withdraw must be positive");
         }
-        if (amount > balance) {
-            throw new IllegalStateException("Insufficient funds");
-        }
+         if (amount > balance) {
+             throw new IllegalStateException("Insufficient funds");
+         }
         balance -= amount;
     }
 }
